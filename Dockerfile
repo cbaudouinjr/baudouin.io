@@ -1,5 +1,9 @@
 FROM python:3.7-slim
 
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=production
+ENV FLASK_RUN_PORT=4000
+
 RUN mkdir -p /app
 
 COPY requirements.txt /app

@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__)
 
@@ -9,4 +10,5 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    app.run()
+    http_server = WSGIServer(('', 4000), app)
+    http_server.serve_forever()
